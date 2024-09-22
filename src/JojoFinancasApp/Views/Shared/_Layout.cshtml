@@ -9,16 +9,31 @@
 <body>
     <header>
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
             <div class="container-fluid">
 
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AppSemTemplate</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Jojo Financas App</a>
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Itens de Compra
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="ClasseCompra" asp-action="List">Classe de compra</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="TipoPagamento" asp-action="List">Tipo de pagamento</a>
+                                </li>                                
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
 
@@ -28,16 +43,10 @@
     </header>
 
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 mb-3">
             @RenderBody()
         </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            <p>Seu site ASP.NET feito do jeito certo!!</p>
-        </div>
-    </footer>
+    </div>    
 
     <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 

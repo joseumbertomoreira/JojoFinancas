@@ -5,6 +5,12 @@ namespace JojoFinancasApp.Models
     public class Pagamento
     {
 
+
+        public Pagamento() 
+        {
+            TipoPagamento = new TipoPagamento();
+        }
+
         [Key]
         public int Id { get; set; }
         public int TipoPagamentoId { get; set; }

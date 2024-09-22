@@ -5,6 +5,11 @@ namespace JojoFinancasApp.Models
     public class TipoPagamento
     {
 
+        public TipoPagamento()
+        {
+            this.Descricao = "descricao padrao";
+        }
+
         [Key]
         public int Id { get; set; }
 
