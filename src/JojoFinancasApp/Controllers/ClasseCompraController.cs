@@ -1,23 +1,24 @@
 ﻿using JojoFinancasApp.Data;
 using Microsoft.AspNetCore.Mvc;
 using JojoFinancasApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace JojoFinancasApp.Controllers
 {
     public class ClasseCompraController : Controller
     {
 
-        public AppDbContext Db { get; set; }
+        private readonly AppDbContext _context;
 
         public ClasseCompraController(AppDbContext context)
         {
-            Db = context;
+            _context = context;
         }
 
-        public IActionResult List()
+        public async Task<IActionResult> List()
         {
 
-            return View(Db.);
+            return View(await _context.ClassesCompra.ToListAsync());
         }
 
         public IActionResult Create()
@@ -32,11 +33,27 @@ namespace JojoFinancasApp.Controllers
 
             if (!ModelState.IsValid) return View(model);
 
-            _context.Add(model);
+            _context.ClassesCompra.Add(model);
             _context.SaveChanges();
 
             return RedirectToAction(nameof(List));
 
         }
+
+        public IActionResult Delete(int id)
+        {
+
+            var classeCompra = _context.ClassesCompra.FirstOrDefault(c => c.Id == id);
+
+            if (classeCompra != null)
+            {
+                 _context.ClassesCompra.Remove(classeCompra);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction(nameof(List));
+
+        }
+
     }
 }

@@ -37,14 +37,13 @@
                     <td class="text-right">
                         <div class="d-flex justify-content-end">
                             <a asp-action="Edit" asp-route-id="@Item.Id" class="btn btn-warning me-2">
-                                <spam class="fa fa-pencil-alt" data-toggle="tooltip" data-placement="right" title="Editar"></spam>
+                                <spam data-toggle="tooltip" data-placement="right" title="Editar">
+                                    <i class="fa fa-pencil-alt"></i>
+                                </spam>
                             </a>
-                            <a asp-action="Delete" asp-route-id="@Item.Id" class="delete btn btn-danger me-2">
+                            <a asp-action="Delete" asp-route-id="@Item.Id" class="btn btn-danger me-2">
                                 <spam data-toggle="tooltip" data-placement="right" title="Deletar">
-                                    <i class="fa fa-trash">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                    </i>
+                                    <i class="fa fa-trash"></i>
                                 </spam>
                             </a>
                         </div>

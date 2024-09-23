@@ -7,10 +7,10 @@ namespace JojoFinancasApp.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        DbSet<ClasseCompra> ClassesCompra { get; set; }
-        DbSet<Compra> Compras { get; set; }
-        DbSet<Pagamento> Pagamentos { get; set; }
-        DbSet<TipoPagamento> TiposPagamentos { get; set; }
+        public DbSet<ClasseCompra> ClassesCompra { get; set; }
+        public DbSet<Compra> Compras { get; set; }
+        public DbSet<Pagamento> Pagamentos { get; set; }
+        public DbSet<TipoPagamento> TiposPagamentos { get; set; }
 
     }
 }
