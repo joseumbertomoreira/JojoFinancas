@@ -1,0 +1,31 @@
+﻿@model JojoFinancasApp.Models.ClasseCompra;
+
+<h1>
+    Edição de Classe de Compra
+</h1>
+
+<form asp-action="Edit">
+
+    <div class="row">
+        <input type="hidden" asp-for="Id" />
+        <div class=" mb-3 col-md-4">
+            <label asp-for="Nome" class="form-label"></label>
+            <input asp-for="Nome" class="form-control" autofocus />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col-md-4">
+            <button id="btn-success" type="submit" class="btn btn btn-success">
+                <i class="fa fa-save"></i> Salvar
+            </button>
+            &nbsp;&nbsp;
+            <a id="btn-cancel" asp-action="List" class="btn btn-danger">
+                <span class="fa fa-times" data-toggle="tooltip" data-placement="right" title="Cancelar"></span> Cancelar
+            </a>
+        </div>
+    </div>
+
+</form>
+

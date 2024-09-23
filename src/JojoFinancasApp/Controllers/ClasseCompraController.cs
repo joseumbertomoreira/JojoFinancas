@@ -40,6 +40,32 @@ namespace JojoFinancasApp.Controllers
 
         }
 
+        public IActionResult Edit(int id)
+        {
+            var classeCompra = _context.ClassesCompra.FirstOrDefault(c => c.Id == id);
+
+            return View(classeCompra);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, JojoFinancasApp.Models.ClasseCompra model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var classeCompra = _context.ClassesCompra.FirstOrDefault(c => c.Id == id);
+
+            if(classeCompra != null)
+            {
+                classeCompra.Nome = model.Nome;
+                _context.ClassesCompra.Update(classeCompra);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction(nameof(List));
+
+        }
+
         public IActionResult Delete(int id)
         {
 
